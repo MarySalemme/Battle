@@ -5,9 +5,8 @@ class Battle < Sinatra::Base
 enable :sessions
 
  get '/' do
-   'Hello Battle!'
-   'test infrastructure works!'
-   erb(:index)
+  'Hello Battle!'
+  erb(:index)
  end
 
  post '/names' do
