@@ -1,10 +1,51 @@
-<h1>Please enter the players name</h1>
+<html>
+  <style>
+    body {
+      background: url(http://www.designbolts.com/wp-content/uploads/2012/09/Happy-Halloween-Little-Monsters-HD-Wallpapers1.jpg);
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      font-family: Monospace;
+      color: green;
+    }
+    input[type=submit] {
+      width: 100%;
+      padding:5px 15px;
+      background:green;
+      color: white;
+      border:0 none;
+      cursor:pointer;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+    }
+    div {
+      border-radius: 5px;
+      background-color: black;
+      background-size: 50%;
+      opacity: 0.8;
+      padding: 20px;
+    }
+    #text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 
-<form action="/names" method="post">
-  <p>Player 1:
-  <input type="text" name="name1"/></p>
-  <p>Player 2:
-  <input type="text" name="name2"/></p>
-  <br>
-  <input type="submit" value="Submit"/>
-</form>
+
+  <body>
+    <div>
+      <h1>Enter the players name</h1>
+
+      <form action="/names" method="post">
+        <p>Player 1:
+        <input type="text" name="player1"/></p>
+        <p>Player 2:
+        <input type="text" name="player2"/></p>
+        <br>
+        <input type="submit" value="Enter game"/>
+      </form>
+    </div>
+  </body>
+</html>

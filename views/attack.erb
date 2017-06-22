@@ -1,1 +1,6 @@
-<p><%=@player1_name%> attacked <%=@player2_name%>!</p>
+<p><%=@game.player1.name%> attacked <%=@game.player2.name%>!</p>
+<p><%=@game.player2.name%>: <%=@game.player2.hit_points%>/60 HP</p>
+
+<form action='/play' method="get">
+  <input type="submit" value="Continue!">
+</form>
