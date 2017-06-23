@@ -3,6 +3,15 @@
 <h1>Player 2: <%=@game.player2.name%></h1>
 <p><%=@game.player2.hit_points%>/60 HP</p>
 
-<form action="attack">
+
+<% if @game.turn == 1 %>
+<form action="attack1">
   <input type="submit" value="Attack">
 </form>
+<% end %>
+
+<% if @game.turn == 2 %>
+<form action="attack2">
+  <input type="submit" value="Attack">
+</form>
+<% end %>

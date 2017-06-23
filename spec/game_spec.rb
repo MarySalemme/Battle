@@ -8,6 +8,12 @@ describe Game do
   let(:player_1) { double :player }
   let(:player_2) { double :player }
 
+  describe "#initialize" do
+    it "is initiali with a turn set on one" do
+      expect(game.turn).to eq 1
+    end
+  end
+
   describe "#player1" do
     it "returns the first player" do
       expect(game.player1).to eq player_1
@@ -21,9 +27,15 @@ describe Game do
   end
 
   describe "#attack" do
-    it "reduces the votes by ten" do
-      allow(player_1).to receive(:reduce_points) { 50 }
-      expect(game.attack(player_1)).to eq 50
+    it "is able to receive reduce_points method" do
+      expect(player_2).to receive(:reduce_points)
+      game.attack(player_2)
+    end
+  end
+
+  describe "#switch_turn" do
+    it "changes the turn from player 1 to player 2" do
+      expect { game.switch_turn }.to change {game.turn}.to 2
     end
   end
 end

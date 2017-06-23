@@ -1,5 +1,13 @@
+
+<% if @game.turn == 2 %>
 <p><%=@game.player1.name%> attacked <%=@game.player2.name%>!</p>
 <p><%=@game.player2.name%>: <%=@game.player2.hit_points%>/60 HP</p>
+<% end %>
+
+<% if @game.turn == 1 %>
+<p><%=@game.player2.name%> attacked <%=@game.player1.name%>!</p>
+<p><%=@game.player1.name%>: <%=@game.player1.hit_points%>/60 HP</p>
+<% end %>
 
 <form action='/play' method="get">
   <input type="submit" value="Continue!">

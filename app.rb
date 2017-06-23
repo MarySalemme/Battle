@@ -23,10 +23,15 @@ enable :sessions, :logging
     erb(:play)
   end
 
-  get '/attack' do
+  get '/attack1' do
     @game = $game
-    p @game.player1
     @game.attack(@game.player2)
+    erb(:attack)
+  end
+
+  get '/attack2' do
+    @game = $game
+    @game.attack(@game.player1)
     erb(:attack)
   end
 end
