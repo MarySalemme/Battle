@@ -1,15 +1,87 @@
-<h1>Player 1: <%=@game.player1.name%></h1>
-<p><%=@game.player1.hit_points%>/60 HP</p>
-<h1>Player 2: <%=@game.player2.name%></h1>
-<p><%=@game.player2.hit_points%>/60 HP</p>
+<html>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Raleway|Roboto');
 
+    body {
+      background: url(http://www.designbolts.com/wp-content/uploads/2012/09/Happy-Halloween-Little-Monsters-HD-Wallpapers1.jpg);
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      font-family: 'Roboto', sans-serif;
+      color: green;
+    }
+    input[type=submit] {
+      width: 25%;
+      padding:5px 15px;
+      background:green;
+      color: white;
+      border:0 none;
+      cursor:pointer;
+      -webkit-border-radius: 5px;
+      border-radius: 2.5px;
+      font-size: 20px;
+    }
+    .topleft {
+      margin: inherit;
+      text-align: center;
+      width: 35%;
+      border-radius: 5px;
+      background-color: black;
+      background-size: 50%;
+      opacity: 0.8;
+      padding: 10px;
+      position: absolute;
+      top: 8px;
+      left: 16px;
+      font-size: 18px;
+    }
+    .bottomright {
+      margin: inherit;
+      text-align: center;
+      width: 35%;
+      border-radius: 5px;
+      background-color: black;
+      background-size: 50%;
+      opacity: 0.8;
+      padding: 10px;
+      position: absolute;
+      bottom: 8px;
+      right: 16px;
+      font-size: 18px;
+    }
+    .center {
+      position: absolute;
+      left: 35%;
+      top: 50%;
+      width: 30%;
+      text-align: center;
+      font-size: 4px;
+      padding: 10px;
+    }
+  </style>
 
-<% if @game.turn == 1 %>
-  <form action="attack1">
-    <input type="submit" value="Attack">
-  </form>
-<% else %>
-  <form action="attack2">
-    <input type="submit" value="Attack">
-  </form>
-<% end %>
+  <body>
+    <div class="topleft">
+      <h2>Player 1: <%=@game.player1.name%></h2>
+      <img src="https://media.giphy.com/media/9FtiYwOgMAJNe/giphy.gif" width="300">
+      <p><%=@game.player1.hit_points%>/60 HP</p>
+    </div>
+
+    <div class="bottomright">
+      <h2>Player 2: <%=@game.player2.name%></h2>
+      <img src="https://media.giphy.com/media/FDPdeQ1yumeQ0/giphy.gif" width="300">
+      <p><%=@game.player2.hit_points%>/60 HP</p>
+    </div>
+
+    <div class="center">
+      <% if @game.turn == 1 %>
+        <form action="attack1">
+          <input type="submit" value="Attack">
+        </form>
+      <% else %>
+        <form action="attack2">
+          <input type="submit" value="Attack">
+        </form>
+      <% end %>
+    </div>
+  </body>
+</html>

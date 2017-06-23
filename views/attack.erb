@@ -1,16 +1,96 @@
+<html>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Raleway|Roboto');
 
-<% if @game.turn == 2 %>
-<p><%=@game.player1.name%> attacked <%=@game.player2.name%>!</p>
-<p><%=@game.player2.name%>: <%=@game.player2.hit_points%>/60 HP</p>
-<% else %>
-<p><%=@game.player2.name%> attacked <%=@game.player1.name%>!</p>
-<p><%=@game.player1.name%>: <%=@game.player1.hit_points%>/60 HP</p>
-<% end %>
+    body {
+      background: url(http://www.designbolts.com/wp-content/uploads/2012/09/Happy-Halloween-Little-Monsters-HD-Wallpapers1.jpg);
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      font-family: 'Roboto', sans-serif;
+      color: green;
+    }
+    input[type=text], select {
+        width: 20%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 2.5px;
+        box-sizing: border-box;
+    }
+    input[type=submit] {
+      width: 25%;
+      padding:5px 15px;
+      background:green;
+      color: white;
+      border:0 none;
+      cursor:pointer;
+      -webkit-border-radius: 5px;
+      border-radius: 2.5px;
+      font-size: 20px;
+    }
+    .center {
+      position: absolute;
+      left: 35%;
+      top: 50%;
+      width: 30%;
+      text-align: center;
+      font-size: 4px;
+      padding: 10px;
+    }
+    .results {
+      position: absolute;
+      left: 30%;
+      top: 5%;
+      text-align: center;
+      width: 40%;
+      border-radius: 5px;
+      background-color: black;
+      background-size: 50%;
+      opacity: 0.8;
+      padding: 10px;
+      font-size: 20;
+    }
+    .winner {
+      position: absolute;
+      left: 30%;
+      top: 30%;
+      text-align: center;
+      width: 37.5%;
+      border-radius: 5px;
+      background-color: black;
+      background-size: 50%;
+      opacity: 0.8;
+      padding: 20px;
+      font-size: 20;
+    }
+  </style>
 
-<% if @game.player2.hit_points > 0 %>
-  <form action='/play' method="get">
-    <input type="submit" value="Continue!">
-  </form>
-<% else %>
-  <p> <%=@game.player1.name%> won! </p>
-<% end %>
+  <body>
+    <div class="results"><% if @game.turn == 2 %>
+      <p><%=@game.player1.name%> attacked <%=@game.player2.name%>!</p>
+      <p><%=@game.player2.name%> has now <%=@game.player2.hit_points%>/60 HP</p>
+      <% else %>
+      <p><%=@game.player2.name%> attacked <%=@game.player1.name%>!</p>
+      <p><%=@game.player1.name%> has now <%=@game.player1.hit_points%>/60 HP</p>
+    <% end %>
+    </div>
+
+      <% if @game.player2.hit_points > 0 %>
+        <div class="center">
+          <form action='/play' method="get">
+            <input type="submit" value="Continue!">
+          </form>
+        </div>
+      <% else %>
+        <div class="winner">
+          <h1><%=@game.player1.name%> won!</h1>
+        </div>
+        <div class="center">
+          <form action='/' method="get">
+            <input type="submit" value="Restart">
+          </form>
+        </div>
+      <% end %>
+  </body>
+</html>
